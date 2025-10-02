@@ -17,15 +17,11 @@ export default function MotoFormScreen({ navigation }: any) {
 
     setLoading(true);
     try {
-      // 2. Estrutura de dados conforme o seu modelo Moto.java
       const newMoto = {
         modelo,
         placa,
-        // O campo 'identificador' e 'ativa' podem ser exigidos pela API, mas não estão no formulário.
-        // O identificador é not null, então deve ser fornecido. Se você não o tem no form,
-        // você pode gerar um GUID ou usar a placa como um placeholder temporário
-        identificador: placa, // MUDAR ISSO se o identificador precisar de um formato específico
-        ativa: true, // Define o valor padrão para 'ativa'
+        identificador: placa, 
+        ativa: true, 
       };
 
       await createMoto(newMoto);

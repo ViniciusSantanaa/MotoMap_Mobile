@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { View, Text, FlatList, TouchableOpacity, StyleSheet, ActivityIndicator } from "react-native";
 import { useTheme } from "../context/ThemeContext";
-// 1. Importar as funções da API
 import { getMotos } from "../services/api"; 
 
 export default function MotoListScreen({ navigation }: any) {
@@ -10,13 +9,12 @@ export default function MotoListScreen({ navigation }: any) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // 2. Criar função para carregar dados
   const loadMotos = useCallback(async () => {
     setLoading(true);
     setError(null);
     try {
       const response = await getMotos();
-      setMotos(response.data); // Assumindo que a lista está em response.data
+      setMotos(response.data);
     } catch (err) {
       console.error("Erro ao carregar motos:", err);
       setError("Não foi possível carregar as motos. Verifique a API.");
@@ -26,10 +24,8 @@ export default function MotoListScreen({ navigation }: any) {
   }, []);
 
   useEffect(() => {
-    // Carrega motos ao montar a tela
     loadMotos();
 
-    // Adiciona listener para recarregar sempre que a tela for focada (útil após criar/deletar)
     const unsubscribe = navigation.addListener('focus', loadMotos);
     return unsubscribe;
   }, [navigation, loadMotos]);
@@ -46,7 +42,6 @@ export default function MotoListScreen({ navigation }: any) {
           data={motos}
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
-            // A moto possui 'modelo', 'placa' e 'identificador' (opcional)
             <View style={[styles.card, { backgroundColor: theme.card }]}>
               <Text style={{ color: theme.text, fontWeight: 'bold' }}>{item.modelo}</Text>
               <Text style={{ color: theme.text }}>Placa: {item.placa}</Text>
@@ -83,5 +78,5 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   buttonText: { color: "#fff", fontSize: 16, fontWeight: "600" },
-  errorText: { textAlign: 'center', marginTop: 20, fontSize: 16 } // Novo estilo de erro
+  errorText: { textAlign: 'center', marginTop: 20, fontSize: 16 } 
 });

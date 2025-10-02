@@ -8,7 +8,6 @@ export default function LocationFormScreen({ navigation }: any) {
   const [longitude, setLongitude] = useState("");
 
   const salvarLocalizacao = () => {
-    // lógica de salvar localização
     navigation.goBack();
   };
 

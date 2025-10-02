@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { View, Text, FlatList, TouchableOpacity, StyleSheet, ActivityIndicator } from "react-native";
 import { useTheme } from "../context/ThemeContext";
-// 1. Importar as funções da API
 import { getLocalizacoes } from "../services/api"; 
 
 export default function LocationListScreen({ navigation }: any) {
@@ -10,13 +9,13 @@ export default function LocationListScreen({ navigation }: any) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // 2. Criar função para carregar dados
+
   const loadLocalizacoes = useCallback(async () => {
     setLoading(true);
     setError(null);
     try {
       const response = await getLocalizacoes();
-      setLocs(response.data); // Assumindo que a lista está em response.data
+      setLocs(response.data); 
     } catch (err) {
       console.error("Erro ao carregar localizações:", err);
       setError("Não foi possível carregar as localizações. Verifique a API.");
