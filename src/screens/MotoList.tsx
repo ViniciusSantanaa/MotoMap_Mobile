@@ -1,7 +1,19 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { View, Text, FlatList, TouchableOpacity, StyleSheet, ActivityIndicator } from "react-native";
+import { 
+  View, 
+  Text, 
+  FlatList, 
+  TouchableOpacity, 
+  StyleSheet, 
+  ActivityIndicator, 
+  Alert // 1. Importado para feedback e confirmação
+} from "react-native";
 import { useTheme } from "../context/ThemeContext";
-import { getMotos } from "../services/api"; 
+import { 
+  getMotos, 
+  deleteMoto // 2. Importado para a operação Delete
+} from "../services/api"; 
+import { t } from "../i18n/i18n"; // 3. Importado para Internacionalização
 
 export default function MotoListScreen({ navigation }: any) {
   const { theme } = useTheme();
@@ -15,13 +27,51 @@ export default function MotoListScreen({ navigation }: any) {
     try {
       const response = await getMotos();
       setMotos(response.data);
-    } catch (err) {
-      console.error("Erro ao carregar motos:", err);
-      setError("Não foi possível carregar as motos. Verifique a API.");
+    } catch (err: any) {
+      console.error("Erro ao carregar motos:", err.message);
+      // 4. Tradução da mensagem de erro de carregamento
+      setError(t("apiError")); 
     } finally {
       setLoading(false);
     }
   }, []);
+  
+  // 5. Função para navegação de Edição (Update - Critério 4.b)
+  const handleEdit = (motoId: number) => {
+    navigation.navigate("Nova Moto", { motoId });
+  };
+
+  // 6. Função de Exclusão (Delete - Critério 4.b)
+  const excluirMoto = useCallback(async (id: number) => {
+    Alert.alert(
+      t("confirmDelete"), // Título Traduzido
+      t("deleteMotoConfirm"), // Mensagem Traduzida
+      [
+        {
+          text: t("cancel"), // Botão Cancelar Traduzido
+          style: "cancel",
+        },
+        {
+          text: t("confirmDelete"), // Botão Confirmar Traduzido
+          style: "destructive",
+          onPress: async () => {
+            setLoading(true);
+            try {
+              await deleteMoto(id);
+              // Feedback de sucesso traduzido
+              Alert.alert(t("alertSuccess"), t("motoDeletedSuccess")); 
+              loadMotos(); // Recarrega a lista
+            } catch (err: any) {
+              console.error("Erro ao excluir moto:", err.message);
+              // Feedback de erro traduzido
+              setError(t("apiDeleteError")); 
+              setLoading(false);
+            }
+          },
+        },
+      ],
+    );
+  }, [loadMotos]);
 
   useEffect(() => {
     loadMotos();
@@ -32,8 +82,10 @@ export default function MotoListScreen({ navigation }: any) {
 
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
-      <Text style={[styles.title, { color: theme.primary }]}>Motos</Text>
+      {/* 7. Título da Tela Traduzido */}
+      <Text style={[styles.title, { color: theme.primary }]}>{t('motoListTitle')}</Text>
 
+      {/* 8. Mensagens de Loading e Erro Traduzidas */}
       {loading && <ActivityIndicator size="large" color={theme.primary} style={{ marginTop: 20 }} />}
       {error && <Text style={[styles.errorText, { color: theme.error }]}>{error}</Text>}
 
@@ -42,19 +94,34 @@ export default function MotoListScreen({ navigation }: any) {
           data={motos}
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
-            <View style={[styles.card, { backgroundColor: theme.card }]}>
-              <Text style={{ color: theme.text, fontWeight: 'bold' }}>{item.modelo}</Text>
-              <Text style={{ color: theme.text }}>Placa: {item.placa}</Text>
+            <View style={[styles.card, { 
+              backgroundColor: theme.card,
+              flexDirection: 'row', 
+              justifyContent: 'space-between', 
+              alignItems: 'center' 
+            }]}>
+              {/* 9. Área clicável para Edição (Update) */}
+              <TouchableOpacity onPress={() => handleEdit(item.id)} style={{ flex: 1, paddingRight: 10 }}>
+                <Text style={{ color: theme.text, fontWeight: 'bold' }}>{item.modelo}</Text>
+                {/* Tradução do Label 'Placa:' */}
+                <Text style={{ color: theme.text }}>{t('platePlaceholder')}: {item.placa}</Text>
+              </TouchableOpacity>
+              
+              {/* 10. Botão de Excluir (Delete) */}
+              <TouchableOpacity onPress={() => excluirMoto(item.id)}>
+                <Text style={{ color: theme.error, fontSize: 24 }}>🗑️</Text>
+              </TouchableOpacity>
             </View>
           )}
         />
       )}
 
+      {/* 11. Botão "Nova Moto" Traduzido */}
       <TouchableOpacity
         style={[styles.button, { backgroundColor: theme.secondary }]}
         onPress={() => navigation.navigate("Nova Moto")}
       >
-        <Text style={styles.buttonText}>➕ Nova Moto</Text>
+        <Text style={styles.buttonText}>➕ {t('motoFormTitleNew')}</Text>
       </TouchableOpacity>
     </View>
   );

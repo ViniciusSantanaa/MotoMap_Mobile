@@ -1,8 +1,10 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
-import { lightTheme, darkTheme } from "../theme/theme";
+// Importamos o tipo Theme para garantir que ThemeContextType esteja correta.
+import { lightTheme, darkTheme, Theme } from "../theme/theme"; 
 
 type ThemeContextType = {
-  theme: typeof lightTheme;
+  // Usamos o tipo Theme que agora inclui background, text, primary, secondary, error e card
+  theme: Theme; 
   isDark: boolean;
   toggleTheme: () => void;
 };

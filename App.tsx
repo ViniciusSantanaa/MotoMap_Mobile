@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -11,6 +11,12 @@ import MotoListScreen from "./src/screens/MotoList";
 import MotoFormScreen from "./src/screens/MotoForm";
 import LocationListScreen from "./src/screens/LocalizacaoList";
 import LocationFormScreen from "./src/screens/LocalizacaoForm";
+import AboutScreen from "./src/screens/AboutScreen"; // 1. IMPORTADO: Nova tela "Sobre o App"
+
+// 1. Importar a função de tradução (t)
+import { t } from "./src/i18n/i18n"; 
+// 2. Importar a função de registro de notificações
+import { registerForPushNotificationsAsync } from "./src/services/notifications"; 
 
 const Stack = createNativeStackNavigator();
 
@@ -24,52 +30,62 @@ function HomeScreen({ navigation }: any) {
         backgroundColor={theme.primary}
       />
 
-      <Text style={[styles.title, { color: theme.primary }]}>MotoMap</Text>
+      {/* Título e subtítulo traduzidos com t() */}
+      <Text style={[styles.title, { color: theme.primary }]}>{t('appName')}</Text>
       <Text style={[styles.subtitle, { color: theme.text }]}>
-        Solução inteligente de rastreamento e gestão de motos
+        {t('appSubtitle')}
       </Text>
 
       <TouchableOpacity
         style={[styles.button, { backgroundColor: theme.secondary }]}
         onPress={() => navigation.navigate("Motos")}
       >
-        <Text style={styles.buttonText}>📋 Gerenciar Motos</Text>
+        <Text style={styles.buttonText}>{t('manageMotos')}</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
         style={[styles.button, { backgroundColor: theme.secondary }]}
         onPress={() => navigation.navigate("Localizações")}
       >
-        <Text style={styles.buttonText}>📍 Gerenciar Localizações</Text>
+        <Text style={styles.buttonText}>{t('manageLocations')}</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
         style={[styles.button, { backgroundColor: theme.secondary }]}
         onPress={() => navigation.navigate("Login")}
       >
-        <Text style={styles.buttonText}>🔑 Login</Text>
+        <Text style={styles.buttonText}>{t('loginTitle')}</Text> 
       </TouchableOpacity>
 
       <TouchableOpacity
         style={[styles.button, { backgroundColor: theme.secondary }]}
         onPress={() => navigation.navigate("Cadastro")}
       >
-        <Text style={styles.buttonText}>🆕 Cadastro</Text>
+        <Text style={styles.buttonText}>{t('registerTitle')}</Text>
+      </TouchableOpacity>
+      
+      {/* 2. NOVO BOTÃO: Navegação para "Sobre o App" */}
+      <TouchableOpacity
+        style={[styles.button, { backgroundColor: theme.secondary }]}
+        onPress={() => navigation.navigate("Sobre o App")}
+      >
+        <Text style={styles.buttonText}>{t('aboutTitle')}</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
         style={[styles.button, { backgroundColor: theme.secondary }]}
         onPress={() => navigation.navigate("Login")}
       >
-        <Text style={styles.buttonText}>🚪 Logout</Text>
+        <Text style={styles.buttonText}>{t('logout')}</Text>
       </TouchableOpacity>
 
+      {/* Botão de Tema traduzido (usando lógica ternária para escolher a string correta) */}
       <TouchableOpacity
         style={[styles.button, { marginTop: 20, backgroundColor: theme.card }]}
         onPress={toggleTheme}
       >
         <Text style={[styles.buttonText, { color: theme.text }]}>
-          {isDark ? "🌞 Modo Claro" : "🌙 Modo Escuro"}
+          {isDark ? t('darkMode') : t('lightMode')}
         </Text>
       </TouchableOpacity>
     </View>
@@ -78,6 +94,12 @@ function HomeScreen({ navigation }: any) {
 
 
 export default function App() {
+  
+  // A lógica de registro de notificações é executada ao carregar o app
+  useEffect(() => {
+    registerForPushNotificationsAsync();
+  }, []); 
+
   return (
     <AuthProvider>
       <ThemeProvider>
@@ -88,12 +110,15 @@ export default function App() {
               component={HomeScreen}
               options={{ headerShown: false }}
             />
+            {/* Manter os nomes das rotas como strings literais em Português para a navegação funcionar */}
             <Stack.Screen name="Login" component={LoginScreen} />
             <Stack.Screen name="Cadastro" component={RegisterScreen} />
             <Stack.Screen name="Motos" component={MotoListScreen} />
             <Stack.Screen name="Nova Moto" component={MotoFormScreen} />
             <Stack.Screen name="Localizações" component={LocationListScreen} />
             <Stack.Screen name="Nova Localização" component={LocationFormScreen} />
+            {/* 3. NOVA ROTA: Adicionado "Sobre o App" */}
+            <Stack.Screen name="Sobre o App" component={AboutScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </ThemeProvider>

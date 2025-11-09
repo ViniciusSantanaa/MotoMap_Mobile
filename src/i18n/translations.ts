@@ -1,0 +1,153 @@
+export const translations = {
+  // Português (pt-BR) - Idioma padrão
+  'pt-BR': {
+    appName: 'MotoMap',
+    appSubtitle: 'Solução inteligente de rastreamento e gestão de motos',
+    
+    // Auth e Telas de Usuário
+    loginTitle: '🔑 Login',
+    registerTitle: '🆕 Cadastro',
+    emailPlaceholder: 'Email',
+    passwordPlaceholder: 'Senha',
+    loginButton: 'Entrar',
+    registerButton: 'Cadastrar',
+    noAccount: 'Não tem conta? Cadastre-se',
+    hasAccount: 'Já tem conta? Entrar',
+    
+    // Navegação Principal
+    manageMotos: '📋 Gerenciar Motos',
+    manageLocations: '📍 Gerenciar Localizações',
+    logout: '🚪 Logout',
+    
+    // Telas de Dados
+    motoListTitle: 'Motos',
+    motoFormTitleNew: '🏍️ Nova Moto',
+    motoFormTitleEdit: '📝 Editar Moto', // Adicionado
+    locationListTitle: 'Localizações',
+    locationFormTitleNew: '➕ Nova Localização',
+    
+    // Formulários (Placeholders, Labels e Ações)
+    modelPlaceholder: 'Modelo', // Adicionado
+    platePlaceholder: 'Placa', // Adicionado (Usado também na lista)
+    latitudePlaceholder: 'Latitude', // Adicionado
+    longitudePlaceholder: 'Longitude', // Adicionado
+    motoIdLabel: 'Moto ID', // Adicionado
+    dataHoraLabel: 'Data/Hora', // Adicionado
+    zonaLabel: 'Zona', // Adicionado
+    
+    // Ações e Estados
+    save: 'Salvar',
+    cancel: 'Cancelar',
+    saving: 'Salvando...', // Adicionado
+    loadingData: 'Carregando dados...', // Adicionado
+
+    // Temas
+    lightMode: '🌙 Modo Escuro',
+    darkMode: '🌞 Modo Claro',
+
+    // Mensagens de Alerta (Critério 1.c, 4.c, 5.b)
+    alertError: 'Erro',
+    alertSuccess: 'Sucesso',
+    requiredFields: 'Preencha todos os campos!',
+    requiredMotoFields: 'Modelo e Placa são obrigatórios.',
+    invalidCoords: 'As coordenadas devem ser números válidos.', // Adicionado
+    
+    // Mensagens de Sucesso
+    userRegisteredSuccess: 'Usuário cadastrado com sucesso!', // Adicionado
+    motoSaved: 'Moto salva com sucesso!',
+    locationSaved: 'Localização salva com sucesso!',
+    motoDeletedSuccess: 'Moto excluída.', // Adicionado
+    locationDeletedSuccess: 'Localização excluída.', // Adicionado
+    notificationSent: 'Localização salva e notificação enviada!', // Adicionado (para Push)
+
+    // Mensagens de Erro
+    registerError: 'Erro ao cadastrar usuário.', // Adicionado
+    noUserFound: 'Nenhum usuário encontrado. Cadastre-se primeiro.', // Adicionado
+    invalidCredentialsTitle: 'Credenciais inválidas', // Adicionado
+    invalidCredentialsBody: 'Email ou senha incorretos.', // Adicionado
+    loginError: 'Erro ao tentar logar.', // Adicionado
+    apiError: 'Falha ao salvar. Verifique a API.',
+    apiDeleteError: 'Não foi possível excluir. Verifique a API.', // Adicionado
+
+    // Confirmação de Exclusão
+    confirmDelete: 'Confirmar Exclusão', // Adicionado
+    deleteMotoConfirm: 'Tem certeza que deseja excluir esta moto?', // Adicionado
+    deleteLocationConfirm: 'Tem certeza que deseja excluir esta localização?', // Adicionado
+  },
+
+  // Espanhol (es)
+  'es': {
+    appName: 'MotoMap',
+    appSubtitle: 'Solución inteligente de rastreo y gestión de motos',
+    
+    // Auth y Pantallas de Usuario
+    loginTitle: '🔑 Iniciar Sesión',
+    registerTitle: '🆕 Registro',
+    emailPlaceholder: 'Correo electrónico',
+    passwordPlaceholder: 'Contraseña',
+    loginButton: 'Ingresar',
+    registerButton: 'Registrarse',
+    noAccount: '¿No tienes cuenta? Regístrate',
+    hasAccount: '¿Ya tienes cuenta? Iniciar Sesión',
+    
+    // Navegación Principal
+    manageMotos: '📋 Administrar Motos',
+    manageLocations: '📍 Administrar Ubicaciones',
+    logout: '🚪 Cerrar Sesión',
+    
+    // Pantallas de Datos
+    motoListTitle: 'Motos',
+    motoFormTitleNew: '🏍️ Nueva Moto',
+    motoFormTitleEdit: '📝 Editar Moto', // Adicionado
+    locationListTitle: 'Ubicaciones',
+    locationFormTitleNew: '➕ Nueva Ubicación',
+    
+    // Formularios (Placeholders, Etiquetas y Acciones)
+    modelPlaceholder: 'Modelo', // Adicionado
+    platePlaceholder: 'Matrícula', // Adicionado
+    latitudePlaceholder: 'Latitud', // Adicionado
+    longitudePlaceholder: 'Longitud', // Adicionado
+    motoIdLabel: 'Moto ID', // Adicionado
+    dataHoraLabel: 'Fecha/Hora', // Adicionado
+    zonaLabel: 'Zona', // Adicionado
+
+    // Acciones y Estados
+    save: 'Guardar',
+    cancel: 'Cancelar',
+    saving: 'Guardando...', // Adicionado
+    loadingData: 'Cargando datos...', // Adicionado
+
+    // Temas
+    lightMode: '🌙 Modo Oscuro',
+    darkMode: '🌞 Modo Claro',
+
+    // Mensajes de Alerta
+    alertError: 'Error',
+    alertSuccess: 'Éxito',
+    requiredFields: '¡Rellena todos los campos!',
+    requiredMotoFields: 'Modelo y Matrícula son obligatorios.',
+    invalidCoords: 'Las coordenadas deben ser números válidos.', // Adicionado
+    
+    // Mensagens de Éxito
+    userRegisteredSuccess: '¡Usuario registrado con éxito!', // Adicionado
+    motoSaved: '¡Moto guardada con éxito!',
+    locationSaved: '¡Ubicación guardada con éxito!',
+    motoDeletedSuccess: 'Moto eliminada.', // Adicionado
+    locationDeletedSuccess: 'Ubicación eliminada.', // Adicionado
+    notificationSent: '¡Ubicación guardada y notificación enviada!', // Adicionado
+    
+    // Mensagens de Error
+    registerError: 'Error al registrar usuario.', // Adicionado
+    noUserFound: 'Ningún usuario encontrado. Regístrese primero.', // Adicionado
+    invalidCredentialsTitle: 'Credenciales inválidas', // Adicionado
+    invalidCredentialsBody: 'Correo electrónico o contraseña incorrectos.', // Adicionado
+    loginError: 'Error al intentar iniciar sesión.', // Adicionado
+    apiError: 'Fallo al guardar. Verifica la API.',
+    apiDeleteError: 'No se pudo eliminar. Verifica la API.', // Adicionado
+
+    // Confirmación de Eliminación
+    confirmDelete: 'Confirmar Eliminación', // Adicionado
+    deleteMotoConfirm: '¿Está seguro de que desea eliminar esta moto?', // Adicionado
+    deleteLocationConfirm: '¿Está seguro de que desea eliminar esta ubicación?', // Adicionado
+  },
+};
