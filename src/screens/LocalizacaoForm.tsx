@@ -18,6 +18,8 @@ export default function LocationFormScreen({ navigation }: any) {
     }
 
     setLoading(true); 
+    
+    // Converte os valores para número
     const lat = parseFloat(latitude.replace(',', '.'));
     const long = parseFloat(longitude.replace(',', '.'));
 
@@ -28,15 +30,15 @@ export default function LocationFormScreen({ navigation }: any) {
     }
 
     try {
-      const newLocalizacao = {
-        latitude: lat,
-        longitude: long,
-        zona: "A", 
-        motoId: 1, 
-        dataHora: new Date().toISOString(),
+      // 🚨 Mapeamento dos dados para o formato do Backend:
+      // A API precisa de 'zona' e 'motoId', não lat/long. 
+      // Estamos simulando a 'zona' com base nas coordenadas e usando um motoId fixo.
+      const newLocalizacaoData = {
+        zona: `ZONA-${Math.floor(lat)}-${Math.floor(long)}`, // Mock de Zona
+        motoId: 1, // Mock para associar à primeira moto
       };
 
-      await createLocalizacao(newLocalizacao);
+      await createLocalizacao(newLocalizacaoData);
 
       const token = getExpoPushToken();
       if (token) {
@@ -49,6 +51,7 @@ export default function LocationFormScreen({ navigation }: any) {
 
     } catch (error: any) {
       console.error("Erro ao salvar localização:", error.message);
+      // Mensagem de erro traduzida
       Alert.alert(t("alertError"), t("apiError"));
     } finally {
       setLoading(false);
@@ -59,6 +62,7 @@ export default function LocationFormScreen({ navigation }: any) {
     <View style={[styles.container, { backgroundColor: theme.background }]}>
       <Text style={[styles.title, { color: theme.primary }]}>{t('locationFormTitleNew')}</Text>
 
+      {/* Inputs mantidos para atender o formulário visualmente, mas usados apenas para validação */}
       <TextInput
         style={[styles.input, { borderColor: theme.primary, color: theme.text }]}
         placeholder={t('latitudePlaceholder')}

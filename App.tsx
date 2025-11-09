@@ -11,11 +11,9 @@ import MotoListScreen from "./src/screens/MotoList";
 import MotoFormScreen from "./src/screens/MotoForm";
 import LocationListScreen from "./src/screens/LocalizacaoList";
 import LocationFormScreen from "./src/screens/LocalizacaoForm";
-import AboutScreen from "./src/screens/AboutScreen"; // 1. IMPORTADO: Nova tela "Sobre o App"
+import AboutScreen from "./src/screens/AboutScreen"; 
 
-// 1. Importar a função de tradução (t)
 import { t } from "./src/i18n/i18n"; 
-// 2. Importar a função de registro de notificações
 import { registerForPushNotificationsAsync } from "./src/services/notifications"; 
 
 const Stack = createNativeStackNavigator();
@@ -64,7 +62,6 @@ function HomeScreen({ navigation }: any) {
         <Text style={styles.buttonText}>{t('registerTitle')}</Text>
       </TouchableOpacity>
       
-      {/* 2. NOVO BOTÃO: Navegação para "Sobre o App" */}
       <TouchableOpacity
         style={[styles.button, { backgroundColor: theme.secondary }]}
         onPress={() => navigation.navigate("Sobre o App")}
@@ -79,7 +76,6 @@ function HomeScreen({ navigation }: any) {
         <Text style={styles.buttonText}>{t('logout')}</Text>
       </TouchableOpacity>
 
-      {/* Botão de Tema traduzido (usando lógica ternária para escolher a string correta) */}
       <TouchableOpacity
         style={[styles.button, { marginTop: 20, backgroundColor: theme.card }]}
         onPress={toggleTheme}
@@ -95,7 +91,6 @@ function HomeScreen({ navigation }: any) {
 
 export default function App() {
   
-  // A lógica de registro de notificações é executada ao carregar o app
   useEffect(() => {
     registerForPushNotificationsAsync();
   }, []); 
@@ -104,20 +99,19 @@ export default function App() {
     <AuthProvider>
       <ThemeProvider>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="Home">
+          {/* REVERTIDO: A rota inicial agora é "Home" */}
+          <Stack.Navigator initialRouteName="Home"> 
             <Stack.Screen
               name="Home"
               component={HomeScreen}
               options={{ headerShown: false }}
             />
-            {/* Manter os nomes das rotas como strings literais em Português para a navegação funcionar */}
             <Stack.Screen name="Login" component={LoginScreen} />
             <Stack.Screen name="Cadastro" component={RegisterScreen} />
             <Stack.Screen name="Motos" component={MotoListScreen} />
             <Stack.Screen name="Nova Moto" component={MotoFormScreen} />
             <Stack.Screen name="Localizações" component={LocationListScreen} />
             <Stack.Screen name="Nova Localização" component={LocationFormScreen} />
-            {/* 3. NOVA ROTA: Adicionado "Sobre o App" */}
             <Stack.Screen name="Sobre o App" component={AboutScreen} />
           </Stack.Navigator>
         </NavigationContainer>
