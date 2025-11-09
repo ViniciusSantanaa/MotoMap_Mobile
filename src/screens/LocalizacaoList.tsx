@@ -13,7 +13,7 @@ import {
   getLocalizacoes, 
   deleteLocalizacao,
 } from "../services/api"; 
-import { t } from "../i18n/i18n"; // 1. Importado para Internacionalização
+import { t } from "../i18n/i18n";
 
 export default function LocationListScreen({ navigation }: any) {
   const { theme } = useTheme();
@@ -29,37 +29,32 @@ export default function LocationListScreen({ navigation }: any) {
       setLocs(response.data); 
     } catch (err: any) {
       console.error("Erro ao carregar localizações:", err.message);
-      // 2. Tradução do erro de carregamento
       setError(t("apiError"));
     } finally {
       setLoading(false);
     }
   }, []);
   
-  // Função de Exclusão (Delete)
   const excluirLocalizacao = useCallback(async (id: number) => {
     Alert.alert(
-      t("confirmDelete"), // 3. Traduzido
-      t("deleteLocationConfirm"), // 3. Traduzido
+      t("confirmDelete"), 
+      t("deleteLocationConfirm"), 
       [
         {
-          text: t("cancel"), // 3. Traduzido
+          text: t("cancel"), 
           style: "cancel",
         },
         {
-          // Traduzido para o botão de ação
           text: t("confirmDelete"), 
           style: "destructive",
           onPress: async () => {
             setLoading(true);
             try {
               await deleteLocalizacao(id);
-              // Feedback de sucesso traduzido
               Alert.alert(t("alertSuccess"), t("locationDeletedSuccess")); 
               loadLocalizacoes();
             } catch (err: any) {
               console.error("Erro ao excluir localização:", err.message);
-              // Feedback de erro traduzido
               setError(t("apiDeleteError"));
               setLoading(false);
             }
@@ -79,10 +74,8 @@ export default function LocationListScreen({ navigation }: any) {
 
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
-      {/* 4. Título da tela traduzido */}
       <Text style={[styles.title, { color: theme.primary }]}>{t('locationListTitle')}</Text>
 
-      {/* 5. Mensagem de erro traduzida */}
       {loading && <ActivityIndicator size="large" color={theme.primary} style={{ marginTop: 20 }} />}
       {error && <Text style={[styles.errorText, { color: theme.error }]}>{error}</Text>}
 
@@ -98,7 +91,6 @@ export default function LocationListScreen({ navigation }: any) {
               alignItems: 'center',
             }]}>
               <View>
-                {/* 6. Labels de informação traduzidos */}
                 <Text style={{ color: theme.text, fontWeight: 'bold' }}>{t('zonaLabel')}: {item.zona}</Text>
                 <Text style={{ color: theme.text }}>
                   {t('dataHoraLabel')}: {new Date(item.dataHora).toLocaleTimeString()}
@@ -106,7 +98,6 @@ export default function LocationListScreen({ navigation }: any) {
                 <Text style={{ color: theme.text }}>{t('motoIdLabel')}: {item.motoId}</Text>
               </View>
               
-              {/* Botão de Exclusão */}
               <TouchableOpacity onPress={() => excluirLocalizacao(item.id)}>
                 <Text style={{ color: theme.error, fontSize: 24 }}>🗑️</Text>
               </TouchableOpacity>
@@ -115,7 +106,6 @@ export default function LocationListScreen({ navigation }: any) {
         />
       )}
 
-      {/* 7. Botão para nova localização traduzido */}
       <TouchableOpacity
         style={[styles.button, { backgroundColor: theme.secondary }]}
         onPress={() => navigation.navigate("Nova Localização")}

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useTheme } from "../context/ThemeContext";
-import { t } from "../i18n/i18n"; // 1. Importar a função de tradução
+import { t } from "../i18n/i18n";
 
 export default function LoginScreen({ navigation }: any) {
   const { theme } = useTheme();
@@ -14,7 +14,6 @@ export default function LoginScreen({ navigation }: any) {
       const storedUser = await AsyncStorage.getItem("user");
 
       if (!storedUser) {
-        // 2. Traduzindo alerta de usuário não encontrado
         Alert.alert(t('alertError'), t('noUserFound'));
         return;
       }
@@ -25,24 +24,21 @@ export default function LoginScreen({ navigation }: any) {
         await AsyncStorage.setItem("isLoggedIn", "true");
         navigation.replace("Home");
       } else {
-        // 3. Traduzindo alerta de credenciais inválidas
         Alert.alert(t('invalidCredentialsTitle'), t('invalidCredentialsBody'));
       }
     } catch (error) {
       console.error(error);
-      // 4. Traduzindo erro de login
       Alert.alert(t('alertError'), t('loginError'));
     }
   };
 
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
-      {/* 5. Título da tela traduzido */}
       <Text style={[styles.title, { color: theme.primary }]}>{t('loginTitle')}</Text>
 
       <TextInput
         style={[styles.input, { borderColor: theme.primary, color: theme.text }]}
-        placeholder={t('emailPlaceholder')} // 6. Placeholder traduzido
+        placeholder={t('emailPlaceholder')} 
         placeholderTextColor={theme.text}
         value={email}
         onChangeText={setEmail}
@@ -50,7 +46,7 @@ export default function LoginScreen({ navigation }: any) {
 
       <TextInput
         style={[styles.input, { borderColor: theme.primary, color: theme.text }]}
-        placeholder={t('passwordPlaceholder')} // 7. Placeholder traduzido
+        placeholder={t('passwordPlaceholder')} 
         placeholderTextColor={theme.text}
         secureTextEntry
         value={password}
@@ -61,12 +57,12 @@ export default function LoginScreen({ navigation }: any) {
         style={[styles.button, { backgroundColor: theme.secondary }]}
         onPress={handleLogin}
       >
-        <Text style={styles.buttonText}>{t('loginButton')}</Text> {/* 8. Botão traduzido */}
+        <Text style={styles.buttonText}>{t('loginButton')}</Text> 
       </TouchableOpacity>
 
       <TouchableOpacity onPress={() => navigation.navigate("Cadastro")}>
         <Text style={[styles.link, { color: theme.primary }]}>
-          {t('noAccount')} {/* 9. Link de navegação traduzido */}
+          {t('noAccount')} 
         </Text>
       </TouchableOpacity>
     </View>

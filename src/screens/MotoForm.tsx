@@ -8,7 +8,6 @@ import {
   Alert,
   ActivityIndicator
 } from "react-native";
-// 1. Importar o tipo RouteProp e useRoute
 import { useRoute, RouteProp } from "@react-navigation/native"; 
 import { useTheme } from "../context/ThemeContext";
 import { 
@@ -18,39 +17,29 @@ import {
 } from "../services/api"; 
 import { t } from "../i18n/i18n";
 
-// ===============================================
-// 2. Definir a lista de parâmetros de navegação
-// Inclua TODAS as rotas que estão no seu Stack.Navigator (App.tsx)
-// ===============================================
 type RootStackParamList = {
-  // Rotas que não aceitam parâmetros (ou não aceitam objetos complexos)
   Home: undefined; 
   Login: undefined;
   Cadastro: undefined;
   Motos: undefined;
   Localizações: undefined;
   'Nova Localização': undefined;
-
-  // Rota do MotoForm, que aceita o parâmetro opcional motoId
   'Nova Moto': { motoId?: number };
 };
 
-// 3. Tipar a rota usando RouteProp para extrair o tipo correto
 type MotoFormRouteProp = RouteProp<RootStackParamList, 'Nova Moto'>;
 
 
 export default function MotoFormScreen({ navigation }: any) {
   const { theme } = useTheme();
-  // 4. Usar o novo tipo corrigido para o hook useRoute
   const route = useRoute<MotoFormRouteProp>(); 
-  const motoId = route.params?.motoId; // Acessando os parâmetros de forma segura
+  const motoId = route.params?.motoId; 
   
   const [modelo, setModelo] = useState("");
   const [placa, setPlaca] = useState("");
   const [loading, setLoading] = useState(false);
   const [initialLoad, setInitialLoad] = useState(true);
 
-  // Lógica de carregamento de dados (inalterada)
   useEffect(() => {
     if (motoId) {
       navigation.setOptions({ title: t("motoFormTitleEdit") }); 
@@ -73,9 +62,8 @@ export default function MotoFormScreen({ navigation }: any) {
       navigation.setOptions({ title: t("motoFormTitleNew") });
       setInitialLoad(false);
     }
-  }, [motoId, navigation, t]); // Adicionado 't' às dependências
+  }, [motoId, navigation, t]);
 
-  // Lógica de salvamento (inalterada)
   const salvarMoto = async () => {
     if (!modelo || !placa) {
       Alert.alert(t("alertError"), t("requiredMotoFields")); 
@@ -109,7 +97,6 @@ export default function MotoFormScreen({ navigation }: any) {
     }
   };
 
-  // Renderização de carregamento
   if (initialLoad) {
     return (
         <View style={[styles.container, { backgroundColor: theme.background, justifyContent: 'center' }]}>
@@ -119,7 +106,6 @@ export default function MotoFormScreen({ navigation }: any) {
     );
   }
 
-  // Renderização do Formulário (inalterada)
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
       <Text style={[styles.title, { color: theme.primary }]}>
