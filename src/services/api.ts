@@ -1,6 +1,5 @@
 import axios from "axios";
 
-// 🚨 CORREÇÃO CRÍTICA: Usando o IP fornecido e adicionando o prefixo /api.
 const API_BASE_URL = "http://179.100.84.81:8080/api"; 
 
 const api = axios.create({

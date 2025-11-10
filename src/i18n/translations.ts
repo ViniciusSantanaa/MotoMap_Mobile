@@ -1,10 +1,9 @@
 export const translations = {
-  // Português (pt-BR) - Idioma padrão
   'pt-BR': {
     appName: 'MotoMap',
     appSubtitle: 'Solução inteligente de rastreamento e gestão de motos',
     
-    // Auth e Telas de Usuário
+
     loginTitle: '🔑 Login',
     registerTitle: '🆕 Cadastro',
     emailPlaceholder: 'Email',
@@ -13,74 +12,63 @@ export const translations = {
     registerButton: 'Cadastrar',
     noAccount: 'Não tem conta? Cadastre-se',
     hasAccount: 'Já tem conta? Entrar',
-    
-    // Navegação Principal
+
     manageMotos: '📋 Gerenciar Motos',
     manageLocations: '📍 Gerenciar Localizações',
     logout: '🚪 Logout',
     
-    // Telas de Dados
     motoListTitle: 'Motos',
     motoFormTitleNew: '🏍️ Nova Moto',
-    motoFormTitleEdit: '📝 Editar Moto', // Adicionado
+    motoFormTitleEdit: '📝 Editar Moto', 
     locationListTitle: 'Localizações',
     locationFormTitleNew: '➕ Nova Localização',
-    
-    // Formulários (Placeholders, Labels e Ações)
-    modelPlaceholder: 'Modelo', // Adicionado
-    platePlaceholder: 'Placa', // Adicionado (Usado também na lista)
-    latitudePlaceholder: 'Latitude', // Adicionado
-    longitudePlaceholder: 'Longitude', // Adicionado
-    motoIdLabel: 'Moto ID', // Adicionado
-    dataHoraLabel: 'Data/Hora', // Adicionado
-    zonaLabel: 'Zona', // Adicionado
-    
-    // Ações e Estados
+
+    modelPlaceholder: 'Modelo', 
+    platePlaceholder: 'Placa', 
+    latitudePlaceholder: 'Latitude', 
+    longitudePlaceholder: 'Longitude', 
+    motoIdLabel: 'Moto ID', 
+    dataHoraLabel: 'Data/Hora', 
+    zonaLabel: 'Zona', 
+
     save: 'Salvar',
     cancel: 'Cancelar',
-    saving: 'Salvando...', // Adicionado
-    loadingData: 'Carregando dados...', // Adicionado
+    saving: 'Salvando...', 
+    loadingData: 'Carregando dados...', 
 
-    // Temas
     lightMode: '🌙 Modo Escuro',
     darkMode: '🌞 Modo Claro',
 
-    // Mensagens de Alerta (Critério 1.c, 4.c, 5.b)
     alertError: 'Erro',
     alertSuccess: 'Sucesso',
     requiredFields: 'Preencha todos os campos!',
     requiredMotoFields: 'Modelo e Placa são obrigatórios.',
-    invalidCoords: 'As coordenadas devem ser números válidos.', // Adicionado
-    
-    // Mensagens de Sucesso
-    userRegisteredSuccess: 'Usuário cadastrado com sucesso!', // Adicionado
+    invalidCoords: 'As coordenadas devem ser números válidos.', 
+
+    userRegisteredSuccess: 'Usuário cadastrado com sucesso!',
     motoSaved: 'Moto salva com sucesso!',
     locationSaved: 'Localização salva com sucesso!',
-    motoDeletedSuccess: 'Moto excluída.', // Adicionado
-    locationDeletedSuccess: 'Localização excluída.', // Adicionado
-    notificationSent: 'Localização salva e notificação enviada!', // Adicionado (para Push)
+    motoDeletedSuccess: 'Moto excluída.', 
+    locationDeletedSuccess: 'Localização excluída.', 
+    notificationSent: 'Localização salva e notificação enviada!', 
 
-    // Mensagens de Erro
-    registerError: 'Erro ao cadastrar usuário.', // Adicionado
-    noUserFound: 'Nenhum usuário encontrado. Cadastre-se primeiro.', // Adicionado
-    invalidCredentialsTitle: 'Credenciais inválidas', // Adicionado
-    invalidCredentialsBody: 'Email ou senha incorretos.', // Adicionado
-    loginError: 'Erro ao tentar logar.', // Adicionado
+    registerError: 'Erro ao cadastrar usuário.', 
+    noUserFound: 'Nenhum usuário encontrado. Cadastre-se primeiro.', 
+    invalidCredentialsTitle: 'Credenciais inválidas', 
+    invalidCredentialsBody: 'Email ou senha incorretos.', 
+    loginError: 'Erro ao tentar logar.', 
     apiError: 'Falha ao salvar. Verifique a API.',
-    apiDeleteError: 'Não foi possível excluir. Verifique a API.', // Adicionado
+    apiDeleteError: 'Não foi possível excluir. Verifique a API.', 
 
-    // Confirmação de Exclusão
-    confirmDelete: 'Confirmar Exclusão', // Adicionado
-    deleteMotoConfirm: 'Tem certeza que deseja excluir esta moto?', // Adicionado
-    deleteLocationConfirm: 'Tem certeza que deseja excluir esta localização?', // Adicionado
+    confirmDelete: 'Confirmar Exclusão', 
+    deleteMotoConfirm: 'Tem certeza que deseja excluir esta moto?', 
+    deleteLocationConfirm: 'Tem certeza que deseja excluir esta localização?', 
   },
 
-  // Espanhol (es)
   'es': {
     appName: 'MotoMap',
     appSubtitle: 'Solución inteligente de rastreo y gestión de motos',
-    
-    // Auth y Pantallas de Usuario
+
     loginTitle: '🔑 Iniciar Sesión',
     registerTitle: '🆕 Registro',
     emailPlaceholder: 'Correo electrónico',
@@ -89,65 +77,56 @@ export const translations = {
     registerButton: 'Registrarse',
     noAccount: '¿No tienes cuenta? Regístrate',
     hasAccount: '¿Ya tienes cuenta? Iniciar Sesión',
-    
-    // Navegación Principal
+
     manageMotos: '📋 Administrar Motos',
     manageLocations: '📍 Administrar Ubicaciones',
     logout: '🚪 Cerrar Sesión',
-    
-    // Pantallas de Datos
+
     motoListTitle: 'Motos',
     motoFormTitleNew: '🏍️ Nueva Moto',
-    motoFormTitleEdit: '📝 Editar Moto', // Adicionado
+    motoFormTitleEdit: '📝 Editar Moto', 
     locationListTitle: 'Ubicaciones',
     locationFormTitleNew: '➕ Nueva Ubicación',
     
-    // Formularios (Placeholders, Etiquetas y Acciones)
-    modelPlaceholder: 'Modelo', // Adicionado
-    platePlaceholder: 'Matrícula', // Adicionado
-    latitudePlaceholder: 'Latitud', // Adicionado
-    longitudePlaceholder: 'Longitud', // Adicionado
-    motoIdLabel: 'Moto ID', // Adicionado
-    dataHoraLabel: 'Fecha/Hora', // Adicionado
-    zonaLabel: 'Zona', // Adicionado
+    modelPlaceholder: 'Modelo', 
+    platePlaceholder: 'Matrícula', 
+    latitudePlaceholder: 'Latitud', 
+    longitudePlaceholder: 'Longitud', 
+    motoIdLabel: 'Moto ID', 
+    dataHoraLabel: 'Fecha/Hora', 
+    zonaLabel: 'Zona', 
 
-    // Acciones y Estados
     save: 'Guardar',
     cancel: 'Cancelar',
-    saving: 'Guardando...', // Adicionado
-    loadingData: 'Cargando datos...', // Adicionado
+    saving: 'Guardando...', 
+    loadingData: 'Cargando datos...',
 
-    // Temas
     lightMode: '🌙 Modo Oscuro',
     darkMode: '🌞 Modo Claro',
 
-    // Mensajes de Alerta
     alertError: 'Error',
     alertSuccess: 'Éxito',
     requiredFields: '¡Rellena todos los campos!',
     requiredMotoFields: 'Modelo y Matrícula son obligatorios.',
-    invalidCoords: 'Las coordenadas deben ser números válidos.', // Adicionado
+    invalidCoords: 'Las coordenadas deben ser números válidos.', 
     
-    // Mensagens de Éxito
-    userRegisteredSuccess: '¡Usuario registrado con éxito!', // Adicionado
+    userRegisteredSuccess: '¡Usuario registrado con éxito!', 
     motoSaved: '¡Moto guardada con éxito!',
     locationSaved: '¡Ubicación guardada con éxito!',
-    motoDeletedSuccess: 'Moto eliminada.', // Adicionado
-    locationDeletedSuccess: 'Ubicación eliminada.', // Adicionado
-    notificationSent: '¡Ubicación guardada y notificación enviada!', // Adicionado
-    
-    // Mensagens de Error
-    registerError: 'Error al registrar usuario.', // Adicionado
-    noUserFound: 'Ningún usuario encontrado. Regístrese primero.', // Adicionado
-    invalidCredentialsTitle: 'Credenciales inválidas', // Adicionado
-    invalidCredentialsBody: 'Correo electrónico o contraseña incorrectos.', // Adicionado
-    loginError: 'Error al intentar iniciar sesión.', // Adicionado
-    apiError: 'Fallo al guardar. Verifica la API.',
-    apiDeleteError: 'No se pudo eliminar. Verifica la API.', // Adicionado
+    motoDeletedSuccess: 'Moto eliminada.', 
+    locationDeletedSuccess: 'Ubicación eliminada.',
+    notificationSent: '¡Ubicación guardada y notificación enviada!', 
 
-    // Confirmación de Eliminación
-    confirmDelete: 'Confirmar Eliminación', // Adicionado
-    deleteMotoConfirm: '¿Está seguro de que desea eliminar esta moto?', // Adicionado
-    deleteLocationConfirm: '¿Está seguro de que desea eliminar esta ubicación?', // Adicionado
+    registerError: 'Error al registrar usuario.', 
+    noUserFound: 'Ningún usuario encontrado. Regístrese primero.', 
+    invalidCredentialsTitle: 'Credenciales inválidas', 
+    invalidCredentialsBody: 'Correo electrónico o contraseña incorrectos.', 
+    loginError: 'Error al intentar iniciar sesión.',
+    apiError: 'Fallo al guardar. Verifica la API.',
+    apiDeleteError: 'No se pudo eliminar. Verifica la API.', 
+
+    confirmDelete: 'Confirmar Eliminación', 
+    deleteMotoConfirm: '¿Está seguro de que desea eliminar esta moto?', 
+    deleteLocationConfirm: '¿Está seguro de que desea eliminar esta ubicación?',
   },
 };

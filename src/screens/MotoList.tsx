@@ -6,14 +6,14 @@ import {
   TouchableOpacity, 
   StyleSheet, 
   ActivityIndicator, 
-  Alert // 1. Importado para feedback e confirmação
+  Alert 
 } from "react-native";
 import { useTheme } from "../context/ThemeContext";
 import { 
   getMotos, 
-  deleteMoto // 2. Importado para a operação Delete
+  deleteMoto 
 } from "../services/api"; 
-import { t } from "../i18n/i18n"; // 3. Importado para Internacionalização
+import { t } from "../i18n/i18n"; 
 
 export default function MotoListScreen({ navigation }: any) {
   const { theme } = useTheme();

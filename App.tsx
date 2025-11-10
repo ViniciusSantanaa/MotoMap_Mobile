@@ -28,7 +28,6 @@ function HomeScreen({ navigation }: any) {
         backgroundColor={theme.primary}
       />
 
-      {/* Título e subtítulo traduzidos com t() */}
       <Text style={[styles.title, { color: theme.primary }]}>{t('appName')}</Text>
       <Text style={[styles.subtitle, { color: theme.text }]}>
         {t('appSubtitle')}
@@ -99,7 +98,6 @@ export default function App() {
     <AuthProvider>
       <ThemeProvider>
         <NavigationContainer>
-          {/* REVERTIDO: A rota inicial agora é "Home" */}
           <Stack.Navigator initialRouteName="Home"> 
             <Stack.Screen
               name="Home"

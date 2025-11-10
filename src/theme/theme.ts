@@ -3,8 +3,8 @@ export const lightTheme = {
   text: "#333",
   primary: "#0A3D62",
   secondary: "#1B9CFC",
-  error: "#CC0000", // NOVO
-  card: "#FFFFFF", // NOVO
+  error: "#CC0000", 
+  card: "#FFFFFF", 
 };
 
 export const darkTheme = {
@@ -12,9 +12,9 @@ export const darkTheme = {
   text: "#f4f6f9",
   primary: "#1B9CFC",
   secondary: "#0A3D62",
-  error: "#FF3333", // NOVO
-  card: "#1E1E1E", // NOVO
+  error: "#FF3333", 
+  card: "#1E1E1E", 
 };
 
-// Exportamos o tipo para uso em outros lugares, como no ThemeContext.
+
 export type Theme = typeof lightTheme;
