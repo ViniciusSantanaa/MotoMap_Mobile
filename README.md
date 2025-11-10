@@ -1,21 +1,25 @@
-MotoMap 
-===
+MotoMap
 
-Integrantes:
-Vinícius Sant Anna - 556841
-Felipe Rosa - 557636
-Pedro Henrique Souza - 555533
+🌟 Proposta e Funcionalidades
 
-===
+O MotoMap é um aplicativo móvel desenvolvido em React Native/Expo, focado em oferecer uma experiência de navegação e suporte otimizada para motociclistas e motoboys.
 
-O MotoMap é um aplicativo móvel focado em oferecer uma experiência de navegação e suporte otimizada para motociclistas e motoboys. 
-Sua proposta central é combinar mapeamento preciso com ferramentas específicas para a realidade de quem utiliza a moto como meio de transporte diário ou de trabalho.
+Sua proposta central é ser uma **Solução inteligente de rastreamento e gestão de motos**, combinando mapeamento e ferramentas específicas para a realidade do motociclista.
 
-===
+🔑 Funcionalidades Chave Implementadas
 
-Funcionalidades Chave:
+* **Gestão de Entidades (CRUD Básico):** Permite o gerenciamento completo de **Motos** (cadastro, edição, listagem e exclusão) e **Localizações** (registro e listagem de coordenadas/zonas), interagindo com uma API na URL `http://179.100.84.81:8080/api`.
+* **Autenticação e Perfil:** Telas de Login e Cadastro com gerenciamento de estado local (`AsyncStorage` e `SecureStore`).
+* **Notificações Push:** O aplicativo registra tokens de dispositivo e envia uma notificação de confirmação (via Expo Push API) ao salvar uma nova localização.
+* **Internacionalização (i18n):** Suporte a múltiplos idiomas (Português e Espanhol) usando a biblioteca `i18n-js`.
+* **Temas Dinâmicos:** Permite alternar entre modos **Claro (Light)** e **Escuro (Dark)** usando `ThemeContext`.
 
-- Navegação Otimizada: Criação de rotas que consideram restrições para motocicletas e priorizam caminhos com pontos de apoio.
-- Pontos de Interesse (POI): Rápida localização de serviços essenciais, como postos de gasolina, oficinas e borracharias ao longo do percurso.
-- Rastreamento de Viagens: Registro detalhado do histórico de rotas, tempo e quilometragem para acompanhamento do desempenho e manutenção.
-- Perfil Personalizado: Permite a gestão dos dados do motociclista e informações da motocicleta (modelo, manutenção).
+---
+👥 Integrantes
+
+| Nome | RM | GitHub |
+| Vinícius Sant Anna | 556841 | (https://github.com/ViniciusSantanaa) |
+| Felipe Rosa | 557636 | (http://github.com/Felipafaa) |
+| Pedro Henrique Souza | 555533 | (https://github.com/PedroSouza1111) |
+
+---
