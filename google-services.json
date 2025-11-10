@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "954454731034",
+    "project_id": "motomap-9d0ad",
+    "storage_bucket": "motomap-9d0ad.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:954454731034:android:fb0b3f71b8a053ac4b64a3",
+        "android_client_info": {
+          "package_name": "com.viniciussantanna.MotoMap"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOmYsueTyaAKRicsXJ3v8McEDi16F_lsA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
