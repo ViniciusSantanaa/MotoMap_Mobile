@@ -1,12 +1,12 @@
-# MotoMap
+MotoMap
 
-## 🌟 Proposta e Funcionalidades
+🌟 Proposta e Funcionalidades
 
 O MotoMap é um aplicativo móvel desenvolvido em React Native/Expo, focado em oferecer uma experiência de navegação e suporte otimizada para motociclistas e motoboys.
 
 Sua proposta central é ser uma **Solução inteligente de rastreamento e gestão de motos**, combinando mapeamento e ferramentas específicas para a realidade do motociclista.
 
-### 🔑 Funcionalidades Chave Implementadas
+🔑 Funcionalidades Chave Implementadas
 
 * **Gestão de Entidades (CRUD Básico):** Permite o gerenciamento completo de **Motos** (cadastro, edição, listagem e exclusão) e **Localizações** (registro e listagem de coordenadas/zonas), interagindo com uma API na URL `http://179.100.84.81:8080/api`.
 * **Autenticação e Perfil:** Telas de Login e Cadastro com gerenciamento de estado local (`AsyncStorage` e `SecureStore`).
@@ -15,12 +15,11 @@ Sua proposta central é ser uma **Solução inteligente de rastreamento e gestã
 * **Temas Dinâmicos:** Permite alternar entre modos **Claro (Light)** e **Escuro (Dark)** usando `ThemeContext`.
 
 ---
-
-## 👥 Integrantes
+👥 Integrantes
 
 | Nome | RM | GitHub |
-| Vinícius Sant Anna | 556841 | **[Preencher com o link do GitHub]** |
-| Felipe Rosa | 557636 | **[Preencher com o link do GitHub]** |
-| Pedro Henrique Souza | 555533 | **[Preencher com o link do GitHub]** |
+| Vinícius Sant Anna | 556841 | (https://github.com/ViniciusSantanaa) |
+| Felipe Rosa | 557636 | (http://github.com/Felipafaa) |
+| Pedro Henrique Souza | 555533 | (https://github.com/PedroSouza1111) |
 
 ---
